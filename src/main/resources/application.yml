@@ -1,0 +1,23 @@
+server :
+  port : 1010
+spring :
+  application :
+    name : UserManagementException
+  main:
+    web-application-type: reactive
+com :
+    user :
+      errors :
+        messages :
+          UserNotFoundException:
+           code : 1001
+           statsCode : 404
+           message :
+              AR : خطا في الادخال
+              EN : User Not Found
+          UserUnstableConditionsException:
+            code: 1002
+            statsCode: 505
+            message:
+              AR: لا يوافق شروط التسجيل
+              EN: Does Not Match Registration Conditions
