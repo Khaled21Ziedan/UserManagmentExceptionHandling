@@ -24,10 +24,11 @@ public class UserInMemoryRepository implements UserRepository {
         return Optional.ofNullable(users.get(userId));
     }
 
-    public void save(User user) {
+    public User save(User user) {
         if (user.getAge() > 30)
             throw new UserUnstableConditionsException(user.getId());
         users.put(user.getId(), user);
+        return users.get(user.getId());
     }
 
     @Override
@@ -38,10 +39,11 @@ public class UserInMemoryRepository implements UserRepository {
     }
 
     @Override
-    public void remove(String userId) {
+    public User remove(String userId) {
         if (users.get(userId) == null)
             throw new UserNotFoundException(userId);
-        users.remove(userId);
+        User removed = users.remove(userId);
+        return removed;
     }
 
     @Override

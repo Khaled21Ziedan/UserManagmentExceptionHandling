@@ -17,10 +17,10 @@ public class UserService {
     public Optional<User> findById(String userid){
         return userRepository.getById(userid);
     }
-    public void register(User user){userRepository.save(user);
+    public User register(User user){return userRepository.save(user);
     }
     public void update(User user){userRepository.update(user); }
-    public void remove (String userId) {userRepository.remove(userId);}
+    public User remove (String userId) {return userRepository.remove(userId);}
     public void modify(User user){userRepository.modify(user);}
 
 }

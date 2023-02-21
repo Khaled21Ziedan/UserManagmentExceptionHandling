@@ -1,6 +1,8 @@
 server :
   port : 1010
 spring :
+  config :
+    import : configserver:http://localhost:6666
   application :
     name : UserManagementException
   main:
@@ -16,8 +18,14 @@ com :
               AR : خطا في الادخال
               EN : User Not Found
           UserUnstableConditionsException:
-            code: 1002
-            statsCode: 505
-            message:
+           code: 1002
+           statsCode: 505
+           message:
               AR: لا يوافق شروط التسجيل
               EN: Does Not Match Registration Conditions
+management :
+  endpoints :
+    web :
+      exposure :
+        include :
+          - "*"

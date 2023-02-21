@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface UserRepository {
     Optional<User> getById(String userId);
-     void save(User user);
+     User save(User user);
      void  update(User user);
-     void remove(String userId);
+     User remove(String userId);
      void modify(User user);
 }
